@@ -30,6 +30,7 @@ import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -89,7 +90,8 @@ public class AnimatedSvgView extends View {
     private Paint mFillPaint;
     private int[] mFillColors;
     private GlyphData[] mGlyphData;
-    private String[] mGlyphStrings;
+    private String[] mGlyphStrings;//路径的字符串
+    private Path[] mGlyphPaths;//路径的path对象
     private float mMarkerLength;
     private int mWidth;
     private int mHeight;
@@ -275,7 +277,12 @@ public class AnimatedSvgView extends View {
         for (int i = 0; i < mGlyphStrings.length; i++) {
             mGlyphData[i] = new GlyphData();
             try {
-                mGlyphData[i].path = PathParser.createPathFromPathData(mGlyphStrings[i]);
+                String glyphString = mGlyphStrings[i];
+                if (TextUtils.isEmpty(glyphString) && mGlyphPaths != null) {
+                    mGlyphData[i].path = mGlyphPaths[i]; //直接使用path
+                } else {
+                    mGlyphData[i].path = PathParser.createPathFromPathData(glyphString);
+                }
                 mGlyphData[i].path.transform(scaleMatrix);
             } catch (Exception e) {
                 mGlyphData[i].path = new Path();
@@ -320,6 +327,12 @@ public class AnimatedSvgView extends View {
      */
     public void setGlyphStrings(@NonNull String... glyphStrings) {
         mGlyphStrings = glyphStrings;
+        mGlyphPaths = null;
+    }
+
+    public void setGlyphPaths(@NonNull Path... glyphPaths) {
+        mGlyphPaths = glyphPaths;
+        mGlyphStrings = new String[glyphPaths.length];
     }
 
     /**
