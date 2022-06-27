@@ -17,6 +17,8 @@
 
 package com.jaredrummler.android.animatedsvgview.demo;
 
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.view.View;
 
@@ -78,6 +80,24 @@ public class MainActivity extends AppCompatActivity {
     public void onPrevious(View view) {
         if (--index < 0) index = SVG.values().length - 1;
         setSvg(SVG.values()[index]);
+    }
+
+    public void onTest(View view) {
+        Path[] paths = new Path[1];
+        Path path = new Path();
+        //path.addCircle(300, 300, 100, Path.Direction.CW);
+
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStrokeWidth(30);
+        paint.setTextSize(60);
+        String text = "LaserPecker";
+        paint.getTextPath(text, 0, text.length(), 0, paint.descent() - paint.ascent(), path);
+
+        paths[0] = path;
+        svgView.setGlyphPaths(paths);
+        svgView.rebuildGlyphData();
+        svgView.start();
     }
 
     private void setSvg(SVG svg) {

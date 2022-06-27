@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Jared Rummler
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,57 +15,65 @@
   ~
   -->
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.jaredrummler.android.animatedsvgview.demo.MainActivity">
 
-  <com.jaredrummler.android.widget.AnimatedSvgView
-      android:id="@+id/animated_svg_view"
-      android:layout_width="180dp"
-      android:layout_height="180dp"
-      android:layout_gravity="center"
-      android:layout_marginBottom="25dp"
-      app:animatedSvgFillColors="@array/google_glyph_colors"
-      app:animatedSvgFillStart="1200"
-      app:animatedSvgFillTime="1000"
-      app:animatedSvgGlyphStrings="@array/google_glyph_strings"
-      app:animatedSvgImageSizeX="400"
-      app:animatedSvgImageSizeY="400"
-      app:animatedSvgTraceMarkerLength="50"
-      app:animatedSvgTraceTime="2000"
-      app:animatedSvgTraceTimePerGlyph="1000"/>
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:id="@+id/animated_svg_view"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="25dp"
+        app:animatedSvgFillColors="@array/google_glyph_colors"
+        app:animatedSvgFillStart="1200"
+        app:animatedSvgFillTime="1000"
+        app:animatedSvgGlyphStrings="@array/google_glyph_strings"
+        app:animatedSvgImageSizeX="400"
+        app:animatedSvgImageSizeY="400"
+        app:animatedSvgTraceMarkerLength="50"
+        app:animatedSvgTraceTime="2000"
+        app:animatedSvgTraceTimePerGlyph="1000" />
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="bottom">
-
-    <Button
-        android:id="@+id/btn_previous"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:enabled="false"
-        android:onClick="onPrevious"
-        android:text="@string/previous"/>
+        android:layout_gravity="bottom">
 
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:enabled="false"
-        android:onClick="onNext"
-        android:text="@string/next"/>
+        <Button
+            android:id="@+id/btn_previous"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:onClick="onPrevious"
+            android:text="@string/previous" />
 
-  </LinearLayout>
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:onClick="onNext"
+            android:text="@string/next" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:onClick="onTest"
+            android:text="Test" />
+
+    </LinearLayout>
 
 </FrameLayout>
