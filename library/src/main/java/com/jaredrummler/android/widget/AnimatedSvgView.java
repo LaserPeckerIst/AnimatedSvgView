@@ -67,38 +67,38 @@ public class AnimatedSvgView extends View {
      */
     public static final int STATE_FINISHED = 3;
 
-    private static final String TAG = "AnimatedSvgView";
+    protected static final String TAG = "AnimatedSvgView";
 
-    private static final Interpolator INTERPOLATOR = new DecelerateInterpolator();
+    protected static final Interpolator INTERPOLATOR = new DecelerateInterpolator();
 
-    private static float constrain(float min, float max, float v) {
+    protected static float constrain(float min, float max, float v) {
         return Math.max(min, Math.min(max, v));
     }
 
-    private int mTraceTime = 2000;
-    private int mTraceTimePerGlyph = 1000;
-    private int mFillStart = 1200;
-    private int mFillTime = 1000;
-    private int[] mTraceResidueColors;
-    private int[] mTraceColors;
-    private float mViewportWidth;
-    private float mViewportHeight;
-    private PointF mViewport = new PointF(mViewportWidth, mViewportHeight);
-    private float aspectRatioWidth = 1;
-    private float aspectRatioHeight = 1;
+    protected int mTraceTime = 2000;
+    protected int mTraceTimePerGlyph = 1000;
+    protected int mFillStart = 1200;
+    protected int mFillTime = 1000;
+    protected int[] mTraceResidueColors;
+    protected int[] mTraceColors;
+    protected float mViewportWidth;
+    protected float mViewportHeight;
+    protected PointF mViewport = new PointF(mViewportWidth, mViewportHeight);
+    protected float aspectRatioWidth = 1;
+    protected float aspectRatioHeight = 1;
 
-    private Paint mFillPaint;
-    private int[] mFillColors;
-    private GlyphData[] mGlyphData;
-    private String[] mGlyphStrings;//路径的字符串
-    private Path[] mGlyphPaths;//路径的path对象
-    private float mMarkerLength;
-    private int mWidth;
-    private int mHeight;
-    private long mStartTime;
+    protected Paint mFillPaint;
+    protected int[] mFillColors;
+    protected GlyphData[] mGlyphData;
+    protected String[] mGlyphStrings;//路径的字符串
+    protected Path[] mGlyphPaths;//路径的path对象
+    protected float mMarkerLength;
+    protected int mWidth;
+    protected int mHeight;
+    protected long mStartTime;
 
-    private int mState = STATE_NOT_STARTED;
-    private OnStateChangeListener mOnStateChangeListener;
+    protected int mState = STATE_NOT_STARTED;
+    protected OnStateChangeListener mOnStateChangeListener;
 
     public AnimatedSvgView(Context context) {
         super(context);
@@ -115,7 +115,7 @@ public class AnimatedSvgView extends View {
         init(context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    protected void init(Context context, AttributeSet attrs) {
         mFillPaint = new Paint();
         mFillPaint.setAntiAlias(true);
         mFillPaint.setStyle(Paint.Style.FILL);
@@ -498,7 +498,7 @@ public class AnimatedSvgView extends View {
         mOnStateChangeListener = onStateChangeListener;
     }
 
-    private void changeState(@State int state) {
+    protected void changeState(@State int state) {
         if (mState == state) {
             return;
         }
