@@ -17,6 +17,7 @@
 
 package com.jaredrummler.android.animatedsvgview.demo;
 
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Bundle;
@@ -68,6 +69,20 @@ public class MainActivity extends AppCompatActivity {
                     findViewById(R.id.btn_next).setEnabled(true);
                     if (index == -1) index = 0; // first time
                 }
+            }
+        });
+
+        final TextPathAnimateView textPathAnimateView = (TextPathAnimateView) findViewById(R.id.text_path_animated_view);
+        textPathAnimateView.setAnimateText("LaserPecker");
+        textPathAnimateView.setTraceColor(Color.GREEN);
+        textPathAnimateView.setFillColor(Color.BLUE);
+        textPathAnimateView.setFillStart(1500);
+        //textPathAnimateView.setFillTime(1_000);
+        textPathAnimateView.start();
+        textPathAnimateView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textPathAnimateView.start();
             }
         });
     }

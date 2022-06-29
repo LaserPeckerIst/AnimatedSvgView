@@ -32,6 +32,7 @@
         android:layout_height="180dp"
         android:layout_gravity="center"
         android:layout_marginBottom="25dp"
+        android:visibility="visible"
         app:animatedSvgFillColors="@array/google_glyph_colors"
         app:animatedSvgFillStart="1200"
         app:animatedSvgFillTime="1000"
@@ -41,6 +42,14 @@
         app:animatedSvgTraceMarkerLength="50"
         app:animatedSvgTraceTime="2000"
         app:animatedSvgTraceTimePerGlyph="1000" />
+
+    <com.jaredrummler.android.animatedsvgview.demo.TextPathAnimateView
+        android:id="@+id/text_path_animated_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="80dp"
+        android:background="#30000000" />
 
     <LinearLayout
         android:layout_width="match_parent"

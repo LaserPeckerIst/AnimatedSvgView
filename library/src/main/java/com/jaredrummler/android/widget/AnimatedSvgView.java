@@ -188,7 +188,10 @@ public class AnimatedSvgView extends View {
         int widthMode = View.MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
 
-        if (height <= 0 && width <= 0 && heightMode == View.MeasureSpec.UNSPECIFIED &&
+        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
+            width = (int) mViewportWidth;
+            height = (int) mViewportHeight;
+        } else if (height <= 0 && width <= 0 && heightMode == View.MeasureSpec.UNSPECIFIED &&
                 widthMode == View.MeasureSpec.UNSPECIFIED) {
             width = 0;
             height = 0;
